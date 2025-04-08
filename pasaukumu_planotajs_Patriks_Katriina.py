@@ -78,14 +78,4 @@ try:
 
 except ValueError:
         print('Lūdzu ievadiet skaitli!')
-
-        #print(f'{veids} pieejamie datumI: ','\n1  - [veids]')
-    #for i in datumi[veids]:
-    print(datumi[veids])
-
-    bilesu_sk = int(input('Cik biļetes vēlaties: '))
-
-    print( 'Kopējā biļešu cena: ',aprekinat_biletes(bilesu_sk, veids), 'EUR')
-
-except ValueError:
-        print('Lūdzu ievadiet skaitli!')
+ASAAS
