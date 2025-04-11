@@ -82,4 +82,8 @@ try:
 
 except ValueError:
         print('Lūdzu ievadiet skaitli!')
+<<<<<<< HEAD
 
+=======
+ASAAS
+>>>>>>> 50cb896fece43e50307ca82f8597355d4eb4e8a1
