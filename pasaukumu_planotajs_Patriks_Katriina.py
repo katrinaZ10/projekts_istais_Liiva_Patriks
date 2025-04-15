@@ -28,8 +28,8 @@ def aprekinat_biletes(skaits, veids): #funkcija ar padotajiem parametriem (ko ie
     biletes_cena_kopa = (skaits)*cena[veids]
     return biletes_cena_kopa
 
-def brivas_vietas(veids):
-    print(ietilpiba[veids])
+def brivas_vietas(kas): # funkcija atgriež cik brīvas vientas ir izvēlētajā pasākumā
+    return(ietilpiba[kas])
         
 def laiks():
     sodien = date.today()
@@ -55,27 +55,18 @@ try:
             break
         else:
             print('Ievadiet no 1 līdz 3 ciparu!')
-
-        #print(f'{veids} pieejamie datumI: ','\n1  - [veids]')
     
-    #pasaukumu_datumu_skaits = len(datumi[veids])
-
-    #for a in range(pasaukumu_datumu_skaits):
     for i in datumi[veids]:
         print(i)
 
     liet_datums = input('Ievadiet sev vēlamo datumu (kārtas skaitli): ')
     if veids == 'koncers' and liet_datums == '1':
-        print('Datumss ',datumi.get('koncerts'[1]))
+        print('Datums ',datumi.get('koncerts'[1]))
     
 
-    print('Pieejamo biļešu skaits: ', ietilpiba(veids)) #!!!!!!!!!!!
+    print('Pieejamo biļešu skaits: ', brivas_vietas(veids)) 
 
     bilesu_sk = int(input('Cik biļetes vēlaties: '))
-    #kkas = Reikini(bilesu_sk, veids)
-
-    #kkas.brivas_vietas(veids)
-    #kkas.laiks()
 
     print('-'*17) #Konsolē parāda "čeku"
     print('Pasākuma veids: ', veids)
@@ -83,8 +74,6 @@ try:
     print('Dienas līdz pasākumam: ')
     print('Kopējā biļēšau cena: ', aprekinat_biletes(bilesu_sk, veids))
     print('\nPaldies par iepirkšanos!')
-
-    #print( 'Kopējā biļešu cena: ',kkas.aprekinat_biletes(bilesu_sk, veids), 'EUR')
 
 except ValueError:
         print('Lūdzu ievadiet skaitli!')
