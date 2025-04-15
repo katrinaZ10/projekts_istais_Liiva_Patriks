@@ -69,7 +69,7 @@ try:
         print('Datumss ',datumi.get('koncerts'[1]))
     
 
-    print('Pieejamo biļešu skaits: ',brivas_vietas(veids)) #!!!!!!!!!!!
+    print('Pieejamo biļešu skaits: ', ietilpiba(veids)) #!!!!!!!!!!!
 
     bilesu_sk = int(input('Cik biļetes vēlaties: '))
     #kkas = Reikini(bilesu_sk, veids)
