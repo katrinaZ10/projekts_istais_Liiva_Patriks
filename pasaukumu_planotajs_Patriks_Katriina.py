@@ -1,11 +1,5 @@
 from datetime import date #importē datime, lai var aprēķināt cik dienas līdz festivālam
 
-#[date(2025, 6, 6), date(2025, 6, 28), date(2025, 7, 13), date(2025, 8, 5)]
-'''festivals1 : date(2025, 6, 6),
-        festivals2 : date(2025, 6, 28),
-        festivals3 : date(2025, 7, 13),
-        festivals4 : date(2025, 8, 5)'''
-
 datumi = { #vārdnīca ar pasākumu datumiem
     'koncerts' : [date(2025, 6, 12), date(2025, 7, 21) ,date(2025, 10, 16)],
     'festivals': [date(2025, 6, 6), date(2025, 6, 28), date(2025, 7, 13), date(2025, 8, 5)],
@@ -24,6 +18,7 @@ cena = { #vārdnīca ar katra pasākuma biļetes cenu
     'sacencibas' : 12
 }
 
+
 def aprekinat_biletes(skaits, veids): #funkcija ar padotajiem parametriem (ko ievada lietotājs), atgriež kopējo cenu
     biletes_cena_kopa = (skaits)*cena[veids]
     return biletes_cena_kopa
@@ -39,6 +34,7 @@ def laiks():
 
 
 print('Sveicināti pasākumu plānotājā!')
+
 try:
     while True:
         print('Pasākumi veidi: ', '\n1 - Koncerts', '\n2 - Festivals', '\n3 - Sacencibas')
@@ -53,16 +49,38 @@ try:
         elif veids == 3: 
             veids = 'sacencibas'
             break
-        else:
+        elif veids >= 4:
             print('Ievadiet no 1 līdz 3 ciparu!')
+            break
+        
     
-    for i in datumi[veids]:
-        print(i)
+    print('Pieejami datumi : ')
+    for i,dat in enumerate(datumi[veids],1): #cikls konsolē parādīs pieejamos datumus
+        print(f"{i} - {dat}")
 
-    liet_datums = input('Ievadiet sev vēlamo datumu (kārtas skaitli): ')
+    liet_datums = input('Ievadiet sev vēlamo datumu: ')
     if veids == 'koncers' and liet_datums == '1':
-        print('Datums ',datumi.get('koncerts'[1]))
-    
+        izveletais_dat = ('Datums ',datumi.get('koncerts'[1]))
+    elif veids == 'koncers' and liet_datums == '2':
+        izveletais_dat = date(2025, 7, 21)
+        print('Koncerts 2')
+    elif veids == 'koncers' and liet_datums == '3':
+        izveletais_dat = date(2025, 10, 16)
+        print('Koncerts 3')
+
+    elif veids == 'festivals' and liet_datums == '1':
+        izveletais_dat = date(2025, 6, 6)
+        print('Festivāls 1')
+    elif veids == 'festivals' and liet_datums == '2':
+        izveletais_dat = date(2025, 6, 28)
+        print('Festivāls 2')
+    elif veids == 'festivals' and liet_datums == '3':
+        izveletais_dat = date(2025, 7, 13)
+        print('Festivāls 3')
+    elif veids == 'festivals' and liet_datums == '4':
+        izveletais_dat = date(2025, 8, 5)
+        print('Festivāls 4')
+
 
     print('Pieejamo biļešu skaits: ', brivas_vietas(veids)) 
 
@@ -70,11 +88,11 @@ try:
 
     print('-'*17) #Konsolē parāda "čeku"
     print('Pasākuma veids: ', veids)
-    print('Datums: ')
+    print('Datums: ', izveletais_dat)
     print('Dienas līdz pasākumam: ')
     print('Kopējā biļēšau cena: ', aprekinat_biletes(bilesu_sk, veids))
     print('\nPaldies par iepirkšanos!')
 
 except ValueError:
-        print('Lūdzu ievadiet skaitli!')
+            print('Lūdzu ievadiet skaitli!')
 
