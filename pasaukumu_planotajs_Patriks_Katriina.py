@@ -49,37 +49,46 @@ try:
             veids = 'sacencibas'
             break
         else:
-            print('Ievadiet no 1 līdz 3 ciparu!')
+            print('Ievadiet ciparu no 1 līdz 3!')
+            print('-'*17)
 
-    print('Pieejami datumi : ')
-    for i,dat in enumerate(datumi[veids],1): #cikls konsolē parādīs pieejamos datumus
-        print(f"{i} - {dat}")
+    while True:
+        print('Pieejami datumi : ')
+        for i,dat in enumerate(datumi[veids],1): #cikls konsolē parādīs pieejamos datumus
+            print(f"{i} - {dat}")
 
-    liet_datums = int(input('Ievadiet sev vēlamo datumu: '))
-    #validāciju ievadītajam datumam(1,2,3)
+        liet_datums = int(input('Ievadiet sev vēlamo datumu: '))
+        #validāciju ievadītajam datumam(1,2,3)
 
-    if 1<=liet_datums<=len(datumi[veids]):
-        izveletais_dat=datumi[veids][liet_datums-1] 
-    else:
-        print('Ievadiet pieejamu datuma kārtas numuru!')
-        exit()
+        if 1<=liet_datums<=len(datumi[veids]):
+            izveletais_dat=datumi[veids][liet_datums-1]
+            break 
+        else:
+            print('Ievadiet pieejamu datuma kārtas numuru!')
+            print('-'*17)
+            
+    while True:
+        print('Pieejamo biļešu skaits: ', brivas_vietas(veids)) 
 
-    print('Pieejamo biļešu skaits: ', brivas_vietas(veids)) 
+        bilesu_sk = int(input('Cik biļetes vēlaties: '))
 
-    bilesu_sk = int(input('Cik biļetes vēlaties: '))
+        if bilesu_sk > ietilpiba[veids]:
+            print('Nav pietikama pasākuma ietilpība!')
+            print('-'*17)
+        else:
+            break
 
-    if bilesu_sk > ietilpiba[veids]:
-        print('Nav pietikama pasākuma ietilpība!')
-
-    print('-'*17) #Konsolē parāda "čeku"
-    print('Pasākuma veids: ', veids)
-    print('Datums: ', izveletais_dat)
-    print('Dienas līdz pasākumam: ',dienas_lidz_pasakumam(izveletais_dat))
-    print('Kopējā biļēšau cena: ', aprekinat_biletes(bilesu_sk, veids))
-    print('\nPaldies par iepirkšanos!')
-
+        
 except ValueError:
             print('Lūdzu ievadiet skaitli!')
+
+print('-'*17) #Konsolē parāda "čeku"
+print('Pasākuma veids: ', veids)
+print('Datums: ', izveletais_dat)
+print('Dienas līdz pasākumam: ',dienas_lidz_pasakumam(izveletais_dat))
+print('Kopējā biļēšau cena: ', aprekinat_biletes(bilesu_sk, veids), 'EUR')
+print('\nPaldies par iepirkšanos!')
+
 
 
 #pārbaude vai neparsniedz pieejamo bilesu skaitu
