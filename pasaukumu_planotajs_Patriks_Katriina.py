@@ -77,17 +77,19 @@ try:
             print('-'*17)
         else:
             break
+    
+    print('-'*17) #Konsolē parāda "čeku"
+    print('Pasākuma veids: ', veids)
+    print('Datums: ', izveletais_dat)
+    print('Dienas līdz pasākumam: ',dienas_lidz_pasakumam(izveletais_dat))
+    print('Kopējā biļēšau cena: ', aprekinat_biletes(bilesu_sk, veids), 'EUR')
+    print('\nPaldies par iepirkšanos!')
 
-        
-except ValueError:
-            print('Lūdzu ievadiet skaitli!')
+except ValueError or NameError:
+    print('Lūdzu ievadiet skaitli!')
+    print('-'*17)
 
-print('-'*17) #Konsolē parāda "čeku"
-print('Pasākuma veids: ', veids)
-print('Datums: ', izveletais_dat)
-print('Dienas līdz pasākumam: ',dienas_lidz_pasakumam(izveletais_dat))
-print('Kopējā biļēšau cena: ', aprekinat_biletes(bilesu_sk, veids), 'EUR')
-print('\nPaldies par iepirkšanos!')
+
 
 
 
