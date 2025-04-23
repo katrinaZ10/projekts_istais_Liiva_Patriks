@@ -18,18 +18,21 @@ cena = { #vārdnīca ar katra pasākuma biļetes cenu
     'sacencibas' : 12
 }
 
+class Darbibas:
+    def __init__(self): #, skaits, veids, datums
+        ()
 
-def aprekinat_biletes(skaits, veids): #funkcija ar padotajiem parametriem (ko ievada lietotājs), atgriež kopējo cenu
-    biletes_cena_kopa = (skaits)*cena[veids]
-    return biletes_cena_kopa
+    def aprekinat_biletes(skaits, veids): #funkcija ar padotajiem parametriem (ko ievada lietotājs), atgriež kopējo cenu
+        biletes_cena_kopa = (skaits)*cena[veids]
+        return biletes_cena_kopa
 
-def brivas_vietas(kas): # funkcija atgriež cik brīvas vientas ir izvēlētajā pasākumā
-    return(ietilpiba[kas])
-        
-def dienas_lidz_pasakumam(datums):
-    sodien = date.today()
-    diff = (datums - sodien).days
-    return diff
+    def brivas_vietas(veids): # funkcija atgriež cik brīvas vientas ir izvēlētajā pasākumā
+        return(ietilpiba[veids])
+            
+    def dienas_lidz_pasakumam(datums):
+        sodien = date.today()
+        diff = (datums - sodien).days
+        return diff
 
 
 print('Sveicināti pasākumu plānotājā!')
@@ -68,7 +71,8 @@ try:
             print('-'*17)
             
     while True:
-        print('Pieejamo biļešu skaits: ', brivas_vietas(veids)) 
+        liet_darbibas = Darbibas()
+        print('Pieejamo biļešu skaits: ', liet_darbibas.brivas_vietas(veids))  ################
 
         bilesu_sk = int(input('Cik biļetes vēlaties: '))
 
@@ -81,38 +85,10 @@ try:
     print('-'*17) #Konsolē parāda "čeku"
     print('Pasākuma veids: ', veids)
     print('Datums: ', izveletais_dat)
-    print('Dienas līdz pasākumam: ',dienas_lidz_pasakumam(izveletais_dat))
-    print('Kopējā biļēšau cena: ', aprekinat_biletes(bilesu_sk, veids), 'EUR')
+    print('Dienas līdz pasākumam: ',liet_darbibas.dienas_lidz_pasakumam(izveletais_dat)) ###############
+    print('Kopējā biļēšau cena: ', liet_darbibas.aprekinat_biletes(bilesu_sk, veids), 'EUR') ###############
     print('\nPaldies par iepirkšanos!')
 
 except ValueError or NameError:
     print('Lūdzu ievadiet skaitli!')
     print('-'*17)
-
-
-
-
-
-#pārbaude vai neparsniedz pieejamo bilesu skaitu
-'''if veids == 'koncers' and liet_datums == '1':
-        izveletais_dat = date(2025, 6, 12)
-    elif veids == 'koncers' and liet_datums == '2':
-        izveletais_dat = date(2025, 7, 21)
-    elif veids == 'koncers' and liet_datums == '3':
-        izveletais_dat = date(2025, 10, 16)
-
-    elif veids == 'festivals' and liet_datums == '1':
-        izveletais_dat = date(2025, 6, 6)
-    elif veids == 'festivals' and liet_datums == '2':
-        izveletais_dat = date(2025, 6, 28)
-    elif veids == 'festivals' and liet_datums == '3':
-        izveletais_dat = date(2025, 7, 13)
-    elif veids == 'festivals' and liet_datums == '4':
-        izveletais_dat = date(2025, 8, 5)
-
-    elif veids == 'sacencibas' and liet_datums == '1':
-        izveletais_dat = date(2025, 7, 30)
-    elif veids == 'sacencibas' and liet_datums == '2':
-        izveletais_dat = date(2025, 9, 2)
-    elif veids == 'sacencibas' and liet_datums == '3':
-        izveletais_dat = date(2025, 11, 17)'''
