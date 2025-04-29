@@ -42,12 +42,19 @@ class Rekini():
         biletes_cena_kopa = skaits*cena[veids]
         return biletes_cena_kopa
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+class Darbibas:
+    def __init__(self): #, skaits, veids, datums
+        ()
+>>>>>>> b554155676890e6d3394fb70d26579dc2e3ee6d1
 
-def aprekinat_biletes(skaits, veids): #funkcija ar padotajiem parametriem (ko ievada lietotājs), atgriež kopējo cenu
-    biletes_cena_kopa = (skaits)*cena[veids]
-    return biletes_cena_kopa
+    def aprekinat_biletes(skaits, veids): #funkcija ar padotajiem parametriem (ko ievada lietotājs), atgriež kopējo cenu
+        biletes_cena_kopa = (skaits)*cena[veids]
+        return biletes_cena_kopa
 
+<<<<<<< HEAD
 def brivas_vietas(kas): # funkcija atgriež cik brīvas vientas ir izvēlētajā pasākumā
     return(ietilpiba[kas])
         
@@ -69,6 +76,15 @@ def dienas_lidz_pasakumam(datums):
 
 
 >>>>>>> Stashed changes
+=======
+    def brivas_vietas(veids): # funkcija atgriež cik brīvas vientas ir izvēlētajā pasākumā
+        return(ietilpiba[veids])
+            
+    def dienas_lidz_pasakumam(datums):
+        sodien = date.today()
+        diff = (datums - sodien).days
+        return diff
+>>>>>>> b554155676890e6d3394fb70d26579dc2e3ee6d1
 
 
 print('Sveicināti pasākumu plānotājā!')
@@ -113,7 +129,8 @@ try:
             print('-'*17)
             
     while True:
-        print('Pieejamo biļešu skaits: ', brivas_vietas(veids)) 
+        liet_darbibas = Darbibas()
+        print('Pieejamo biļešu skaits: ', liet_darbibas.brivas_vietas(veids))  ################
 
 <<<<<<< Updated upstream
         bilesu_sk = int(input('Cik biļetes vēlaties: '))
@@ -123,7 +140,15 @@ try:
             print('-'*17)
         else:
             break
+    
+    print('-'*17) #Konsolē parāda "čeku"
+    print('Pasākuma veids: ', veids)
+    print('Datums: ', izveletais_dat)
+    print('Dienas līdz pasākumam: ',liet_darbibas.dienas_lidz_pasakumam(izveletais_dat)) ###############
+    print('Kopējā biļēšau cena: ', liet_darbibas.aprekinat_biletes(bilesu_sk, veids), 'EUR') ###############
+    print('\nPaldies par iepirkšanos!')
 
+<<<<<<< HEAD
         
 except ValueError:
             print('Lūdzu ievadiet skaitli!')
@@ -167,3 +192,8 @@ print('\nPaldies par iepirkšanos!')
 except ValueError:
         print('Lūdzu ievadiet skaitli!')
 >>>>>>> Stashed changes
+=======
+except ValueError or NameError:
+    print('Lūdzu ievadiet skaitli!')
+    print('-'*17)
+>>>>>>> b554155676890e6d3394fb70d26579dc2e3ee6d1
