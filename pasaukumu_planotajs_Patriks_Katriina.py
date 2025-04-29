@@ -81,6 +81,7 @@ try:
         
 except ValueError:
             print('Lūdzu ievadiet skaitli!')
+        
 
 print('-'*17) #Konsolē parāda "čeku"
 print('Pasākuma veids: ', veids)
